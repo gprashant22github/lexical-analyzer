@@ -11,29 +11,31 @@ This project implements a lexical analyzer (scanner) for the Kanpur programming 
 
 ## Usage
 To use the lexical analyzer:
-1. Clone the repository:
+1. Clone the repository :
 git clone https://github.com/gprashant22github/lexical-analyzer.git
-2. Compile the lexical analyzer:
+2. Compile the lexical analyzer :
 make
-3. Run the lexical analyzer on a Kanpur program file:
-./lexer public1.knp
+3. Run the lexical analyzer on a Kanpur program file :
+./lexer public1.knp.
 Replace `public1.knp` with your Kanpur program file.
 
 4. View the output which lists and classifies all lexemes.
 
 ## Example Output
 
-LEXEME TOKEN COUNT
-BEGIN KEYWORD 1
-ELSE KEYWORD 1
-END KEYWORD 1
-GT OPERATOR 1
-IF KEYWORD 1
-INTEGER KEYWORD 1
-PRINT IDENTIFIER 1
-STRING "x is greater than y" 1
-STRING " y is greater than x" 1
-... ... ...
+LEXEME    TOKEN       COUNT
+---------------------------
+BEGIN     KEYWORD     1
+ELSE      KEYWORD     1
+END       KEYWORD     1
+GT        OPERATOR    1
+IF        KEYWORD     1
+INTEGER   KEYWORD     1
+PRINT     IDENTIFIER  1
+STRING    "x is greater than y"  1
+STRING    " y is greater than x"  1
+...       ...         ...
+
 
 ## Requirements
 - Flex (Lexical Analyzer Generator)
