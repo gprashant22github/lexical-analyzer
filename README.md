@@ -23,18 +23,18 @@ Replace `public1.knp` with your Kanpur program file.
 
 ## Example Output
 
-LEXEME    TOKEN       COUNT \n
----------------------------\n
-BEGIN     KEYWORD     1\n
-ELSE      KEYWORD     1\n
-END       KEYWORD     1\n
-GT        OPERATOR    1\n
-IF        KEYWORD     1\n
-INTEGER   KEYWORD     1\n
-PRINT     IDENTIFIER  1\n
-STRING    "x is greater than y"  1\n
-STRING    " y is greater than x"  1\n
-...       ...         ...\n
+LEXEME    TOKEN       COUNT <br>
+--------------------------- <br>
+BEGIN     KEYWORD     1 <br>
+ELSE      KEYWORD     1 <br>
+END       KEYWORD     1 <br>
+GT        OPERATOR    1 <br>
+IF        KEYWORD     1 <br>
+INTEGER   KEYWORD     1 <br>
+PRINT     IDENTIFIER  1 <br>
+STRING    "x is greater than y"  1 <br>
+STRING    " y is greater than x"  1 <br>
+...       ...         ... <br>
 
 
 
