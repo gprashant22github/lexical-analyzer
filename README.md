@@ -1,0 +1,2 @@
+# lexical-analyzer
+STAMATICS (DISCRETE MATHEMATICS)
