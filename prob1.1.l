@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 // Token types
 #define KEYWORD 1
@@ -28,6 +29,7 @@ void yyerror(const char *msg);
 void add_token(char *lexeme, int type);
 void print_tokens();
 void free_tokens();
+void convert_to_lowercase(char *str);
 
 %}
 
@@ -37,8 +39,41 @@ void free_tokens();
 
 [\t\f ]+                    { /* Ignore whitespace */ }
 \n                          { line_number++; }
-"ARRAY"|"BEGIN"|"BOOLEAN"|"COMMENT"|"CONTINUE"|"DO"|"DOUBLE"|"ELSE"|"END"|"FALSE"|"FOR"|"IF"|"INTEGER"|"LABEL"|"LIST"|"LONG"|"OWN"|"PROCEDURE"|"STEP"|"SWITCH"|"THEN"|"TRUE"|"UNTIL"|"VALUE"|"WHILE"  { add_token(yytext, KEYWORD); }
-"AND"|"OR"|"LEQ"|"LT"|"GEQ"|"GT"|"NOT"|"EQL"|"NEQ"|"%"|"&"|"<="|"+"|"-"|"/"|">="|":="|"*"|"^"|"|"|"<<"|">>" { add_token(yytext, OPERATOR); }
+[Aa][Rr][Rr][Aa][Yy]        { add_token("ARRAY", KEYWORD); }
+[Bb][Ee][Gg][Ii][Nn]        { add_token("BEGIN", KEYWORD); }
+[Bb][Oo][Oo][Ll][Ee][Aa][Nn] { add_token("BOOLEAN", KEYWORD); }
+[Cc][Oo][Mm][Mm][Ee][Nn][Tt] { add_token("COMMENT", KEYWORD); }
+[Cc][Oo][Nn][Tt][Ii][Nn][Uu][Ee] { add_token("CONTINUE", KEYWORD); }
+[Dd][Oo]                    { add_token("DO", KEYWORD); }
+[Dd][Oo][Uu][Bb][Ll][Ee]    { add_token("DOUBLE", KEYWORD); }
+[Ee][Ll][Ss][Ee]            { add_token("ELSE", KEYWORD); }
+[Ee][Nn][Dd]                { add_token("END", KEYWORD); }
+[Ff][Aa][Ll][Ss][Ee]        { add_token("FALSE", KEYWORD); }
+[Ff][Oo][Rr]                { add_token("FOR", KEYWORD); }
+[Ii][Ff]                    { add_token("IF", KEYWORD); }
+[Ii][Nn][Tt][Ee][Gg][Ee][Rr] { add_token("INTEGER", KEYWORD); }
+[Ll][Aa][Bb][Ee][Ll]        { add_token("LABEL", KEYWORD); }
+[Ll][Ii][Ss][Tt]            { add_token("LIST", KEYWORD); }
+[Ll][Oo][Nn][Gg]            { add_token("LONG", KEYWORD); }
+[Oo][Ww][Nn]                { add_token("OWN", KEYWORD); }
+[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee] { add_token("PROCEDURE", KEYWORD); }
+[Ss][Tt][Ee][Pp]            { add_token("STEP", KEYWORD); }
+[Ss][Ww][Ii][Tt][Cc][Hh]    { add_token("SWITCH", KEYWORD); }
+[Tt][Hh][Ee][Nn]            { add_token("THEN", KEYWORD); }
+[Tt][Rr][Uu][Ee]            { add_token("TRUE", KEYWORD); }
+[Uu][Nn][Tt][Ii][Ll]        { add_token("UNTIL", KEYWORD); }
+[Vv][Aa][Ll][Uu][Ee]        { add_token("VALUE", KEYWORD); }
+[Ww][Hh][Ii][Ll][Ee]        { add_token("WHILE", KEYWORD); }
+[Aa][Nn][Dd]                { add_token("AND", OPERATOR); }
+[Oo][Rr]                    { add_token("OR", OPERATOR); }
+[Ll][Ee][Qq]                { add_token("LEQ", OPERATOR); }
+[Ll][Tt]                    { add_token("LT", OPERATOR); }
+[Gg][Ee][Qq]                { add_token("GEQ", OPERATOR); }
+[Gg][Tt]                    { add_token("GT", OPERATOR); }
+[Nn][Oo][Tt]                { add_token("NOT", OPERATOR); }
+[Ee][Qq][Ll]                { add_token("EQL", OPERATOR); }
+[Nn][Ee][Qq]                { add_token("NEQ", OPERATOR); }
+"%"|"&"|"<="|"+"|"-"|"/"|">="|":="|"*"|"^"|"|"|"<<"|">>" { add_token(yytext, OPERATOR); }
 "("|")"|"["|"]"|"{"|"}"|","|"'"|";"|"\""|":"|"'" { add_token(yytext, DELIMITER); }
 [a-zA-Z][a-zA-Z0-9]*        { add_token(yytext, IDENTIFIER); }
 \"([^\"\n]*)\"              { add_token(yytext, STRING); }
