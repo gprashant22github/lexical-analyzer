@@ -13,8 +13,7 @@ This project implements a lexical analyzer (scanner) for the Kanpur programming 
 To use the lexical analyzer:
 1. Clone the repository :
 git clone https://github.com/gprashant22github/lexical-analyzer.git
-2. Compile the lexical analyzer :
-make
+2. Compile the lexical analyzer
 3. Run the lexical analyzer on a Kanpur program file :
 ./lexer public1.knp.
 Replace `public1.knp` with your Kanpur program file.
