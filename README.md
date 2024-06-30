@@ -13,8 +13,10 @@ This project implements a lexical analyzer (scanner) for the Kanpur programming 
 To use the lexical analyzer:
 1. Clone the repository :
 git clone https://github.com/gprashant22github/lexical-analyzer.git
-2. Compile the lexical analyzer :
-make
+2. Compile the lexical analyzer : <br>
+    (I) flex prob1.1.l <br>
+    (II) gcc lex.yy.c -o lexer -lfl
+
 3. Run the lexical analyzer on a Kanpur program file :
 ./lexer public1.knp.
 Replace `public1.knp` with your Kanpur program file.
@@ -23,18 +25,27 @@ Replace `public1.knp` with your Kanpur program file.
 
 ## Example Output
 
-LEXEME    TOKEN       COUNT <br>
---------------------------- <br>
-BEGIN     KEYWORD     1 <br>
-ELSE      KEYWORD     1 <br>
-END       KEYWORD     1 <br>
-GT        OPERATOR    1 <br>
-IF        KEYWORD     1 <br>
-INTEGER   KEYWORD     1 <br>
-PRINT     IDENTIFIER  1 <br>
-STRING    "x is greater than y"  1 <br>
-STRING    " y is greater than x"  1 <br>
-...       ...         ... <br>
+LEXEME  TOKEN   COUNT<br>
+"x is greater than y"   STRING  1<br>
+"y is greater than x"   STRING  1<br>
+(       DELIMITER       2<br>
+)       DELIMITER       2<br>
+,       DELIMITER       1<br>
+10      INTEGER 1<br>
+20      INTEGER 1<br>
+:=      OPERATOR        2<br>
+;       DELIMITER       5<br>
+BEGIN   KEYWORD 1<br>
+ELSE    KEYWORD 1<br>
+END     KEYWORD 1<br>
+GT      OPERATOR     <br>   1
+IF      KEYWORD 1<br>
+INTEGER KEYWORD 1<br>
+PRINT   IDENTIFIER      2<br>
+THEN    KEYWORD 1<br>
+x       IDENTIFIER      3<br>
+y       IDENTIFIER      3<br>
+
 
 
 
