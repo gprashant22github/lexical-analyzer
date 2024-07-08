@@ -1,4 +1,4 @@
-# Kanpur Language Lexical Analyzer
+# Kanpur Language Lexical Analyzer(Discrete Mathematics)
 
 ## Overview
 This project implements a lexical analyzer (scanner) for the Kanpur programming language using Flex. The lexical analyzer identifies and classifies lexemes into various token types such as keywords, operators, identifiers, strings, delimiters, integers, floating-point numbers, and hexadecimal literals.
